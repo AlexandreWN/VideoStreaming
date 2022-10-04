@@ -7,7 +7,7 @@ public class Video
     public string nome {get; set;}
     public DateTime data {get; set;}
     public byte[] foto {get; set;}
-    public M3u8 m3u8Id {get; set;}
+    public Content m3u8Id {get; set;}
 
     public int save(){
         using(var context = new Context()){

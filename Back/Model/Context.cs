@@ -5,7 +5,7 @@ namespace Model;
 public class Context : DbContext
 {
     public DbSet<Usuario> Usuario {get; set;}
-    public DbSet<M3u8> M3u8 {get; set;}
+    public virtual DbSet<Content> Contents { get; set; } = null!;   
     public DbSet<Video> Video {get; set;}
     public DbSet<Historico> Historico {get; set;}
     public DbSet<Favoritos> Favoritos {get; set;}
@@ -30,9 +30,10 @@ public class Context : DbContext
             entity.Property(u => u.foto);
         });
 
-        modelBuilder.Entity<M3u8>(entity =>{
-            entity.HasKey(m => m.id);
-            entity.Property(m => m.m3u8Video).IsRequired();
+        modelBuilder.Entity<Content>(entity =>
+        {
+            entity.ToTable("Content");
+            entity.Property(e => e.Id).HasColumnName("ID");
         });
 
         modelBuilder.Entity<Historico>(entity =>{

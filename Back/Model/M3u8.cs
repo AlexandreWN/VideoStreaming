@@ -1,20 +1,12 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-namespace Model;
 
-public class M3u8
+namespace Model
 {
-    public int id {get; set;}
-    public byte[] m3u8Video {get; set;}
-
-    public int save(){
-        using(var context = new Context()){
-            var m3u8 = new M3u8(){
-                id = this.id,
-                m3u8Video = this.m3u8Video
-            };
-        }
-        return 0;
+    public partial class Content
+    {
+        public int Id { get; set; }
+        public byte[] Bytes { get; set; } = null!;
     }
 }
 
