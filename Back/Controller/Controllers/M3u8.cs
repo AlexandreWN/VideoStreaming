@@ -10,13 +10,16 @@ using Model;
 [Route("[controller]")]
 public class M3u8 : ControllerBase
 {
-    [HttpGet("teste")]
+    [HttpPost("teste")]
     public object teste()
     {
-        var path = @"C:\Users\alexandre\OneDrive\Área de Trabalho\Repositorios\VideoStreaming\videoToStreamming";
+        var path = @"C:\Users\Aluno\Desktop\ProjetoAniStream\videoToStreamming\";
         Context context = new Context();
 
-        for (int i = 0; i < 57; i++)
+        string x = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly).Count().ToString();
+        Console.WriteLine(x);
+
+        for (int i = 0; i < int.Parse(x) - 1; i++)
         {
             var data = io.File.ReadAllBytes(path + $"Ronnie O'Sullivan Fastest 147{i}.ts");
 
@@ -24,7 +27,6 @@ public class M3u8 : ControllerBase
             {
                 Bytes = data
             });
-            Console.WriteLine("Enviou o  numero ", i);
         }
         var m3u8 = io.File.ReadAllBytes(path + "Ronnie O'Sullivan Fastest 147.m3u8");
         context.Contents.Add(new Content()
@@ -33,7 +35,7 @@ public class M3u8 : ControllerBase
         });
         context.SaveChanges();
         
-        return "Bonito";
+        return "Foi";
     }
 
     [HttpGet("content/{id}")]
