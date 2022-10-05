@@ -13,7 +13,7 @@ public class M3u8 : ControllerBase
     [HttpPost("teste")]
     public object teste()
     {
-        var path = @"C:\Users\Aluno\Desktop\ProjetoAniStream\videoToStreamming\";
+        var path = @"C:\Users\Aluno\Desktop\VideoStreaming\videoToStreamming\";
         Context context = new Context();
 
         string x = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly).Count().ToString();
