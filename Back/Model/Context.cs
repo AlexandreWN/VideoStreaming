@@ -15,8 +15,8 @@ public class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
 
-        //optionsBuilder.UseSqlServer("Data Source=" + Environment.MachineName + ";Initial Catalog=VideoStreaming; Integrated Security=True"); 
-        optionsBuilder.UseSqlServer("Data Source=SNCCH01LABF104\\SQLEXPRESS;Initial Catalog=VideoStreaming; Integrated Security=True");
+        optionsBuilder.UseSqlServer("Data Source=" + Environment.MachineName + ";Initial Catalog=VideoStreaming; Integrated Security=True"); 
+        //optionsBuilder.UseSqlServer("Data Source=SNCCH01LABF104\\SQLEXPRESS;Initial Catalog=VideoStreaming; Integrated Security=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder){

@@ -16,4 +16,14 @@ public class Recomendados
         }
         return 0;
     }
+
+     public static string deleteRecomendados(int id){
+        using(var context = new Context())
+        {
+            var recomendados = context.Recomendados.First(h=> h.id == id);
+            context.Remove(recomendados);  
+            context.SaveChanges();
+            return "foi";
+        }
+    }
 }

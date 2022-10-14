@@ -16,4 +16,14 @@ public class Curtidos
         }
         return 0;
     }
+
+     public static string deleteCurtidos(int id){
+        using(var context = new Context())
+        {
+            var curtidos = context.Curtidos.First(h=> h.id == id);
+            context.Remove(curtidos);  
+            context.SaveChanges();
+            return "foi";
+        }
+    }
 }

@@ -16,4 +16,14 @@ public class Favoritos
         }
         return 0;
     }
+
+     public static string deleteFavoritos(int id){
+        using(var context = new Context())
+        {
+            var favoritos = context.Favoritos.First(h=> h.id == id);
+            context.Remove(favoritos);  
+            context.SaveChanges();
+            return "foi";
+        }
+    }
 }

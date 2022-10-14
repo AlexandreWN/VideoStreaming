@@ -16,4 +16,14 @@ public class Historico
         }
         return 0;
     }
+
+    public static string deleteHistorico(int id){
+        using(var context = new Context())
+        {
+            var historico = context.Historico.First(h=> h.id == id);
+            context.RemoveRange(historico);  
+            context.SaveChanges();
+            return "foi";
+        }
+    }
 }

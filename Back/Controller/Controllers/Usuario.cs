@@ -28,12 +28,7 @@ public class Usuario : ControllerBase
     [HttpDelete]
     [Route("delete/{login}/{senha}")]
     public object deleteUsuario(string login, string senha){
-        try{
-            var usuario = Model.Usuario.deleteUsuario(login);
-            return usuario;
-        }
-        catch(Exception){
-            return ("Erro ao deletar");
-        }  
+        var usuario = Model.Usuario.deleteUsuarios(login, senha);
+        return usuario;
     }
 }

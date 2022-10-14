@@ -17,4 +17,14 @@ public class AssistirMaisTarde
         
         return 0;
     }
+
+     public static string deleteAssistirMaisTarde(int id){
+        using(var context = new Context())
+        {
+            var assistirMaisTarde = context.AssistirMaisTarde.First(h=> h.id == id);
+            context.Remove(assistirMaisTarde);  
+            context.SaveChanges();
+            return "foi";
+        }
+    }
 }
